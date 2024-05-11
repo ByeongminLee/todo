@@ -2,21 +2,21 @@ import { Button } from '../../atom/Button/Button';
 import { cn } from '@/utils';
 
 export interface SocialButtonProps {
-  type: 'kakao' | 'google';
+  variant: 'kakao' | 'google';
   className?: string;
 }
 
-export const SocialButton = ({ type, className }: SocialButtonProps) => {
+export const SocialButton = ({ variant, className }: SocialButtonProps) => {
   return (
-    <Button variant="outline" className={cn(styles[type], className, 'rounded-md')}>
+    <Button variant="outline" className={cn(styles[variant], className, 'rounded-md')}>
       <div className={cn('flex items-center w-full p-4')}>
-        {type === 'kakao' ? (
+        {variant === 'kakao' ? (
           <KaKaIcon className="w-5 h-5" />
         ) : (
           <GoogleIcon className="w-5 h-5" />
         )}
         <span className="w-full leading-[24px] text-[18px] text-center text-[#000000] pl-4">
-          {label[type]}
+          {label[variant]}
         </span>
       </div>
     </Button>

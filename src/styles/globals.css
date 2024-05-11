@@ -41,6 +41,10 @@
     @apply min-w-[280px] min-h-[100vh];
   }
 
+  a {
+    @apply w-fit;
+  }
+
   .font-inter {
     font-family: 'inter', sans-serif;
   }

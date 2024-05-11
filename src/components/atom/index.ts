@@ -1,3 +1,4 @@
+export * from './Logo';
 export * from './Skeleton';
 export * from './Container';
 export * from './Avatar';

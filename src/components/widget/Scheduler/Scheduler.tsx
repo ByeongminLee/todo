@@ -1,4 +1,4 @@
-import { Calendar } from '../../atom/Calendar/Calendar';
+import { Calendar } from '@/atom';
 import { useScheduler } from './useScheduler';
 import { Matcher } from 'react-day-picker';
 

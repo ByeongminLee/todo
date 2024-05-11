@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Scheduler } from './Scheduler';
-import { StoryFrame } from '@/system';
+import { Header } from './Header';
+import { StoryFrame } from '../../system/StoryFrame';
 
 const meta = {
-  title: 'DesignSystem/Widget/Scheduler',
-  component: Scheduler,
+  title: 'DesignSystem/Feature/Header',
+  component: Header,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof Scheduler>;
+} satisfies Meta<typeof Header>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -19,8 +19,8 @@ export const Example: Story = {
   args: {},
   render: () => {
     return (
-      <StoryFrame className="w-[480px]">
-        <Scheduler marking={[new Date(2024, 4, 10), new Date(2024, 4, 11)]} />
+      <StoryFrame className="w-[500px]">
+        <Header />
       </StoryFrame>
     );
   },

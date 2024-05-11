@@ -16,12 +16,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Google: Story = {
   args: {
-    type: 'google',
+    variant: 'google',
   },
 };
 
 export const KaKao: Story = {
   args: {
-    type: 'kakao',
+    variant: 'kakao',
   },
 };

@@ -1,11 +1,11 @@
 import { Header } from '@/feature';
-import { Home } from '@/pages';
+import { TermsOfService } from '@/pages';
 
 export default function Page() {
   return (
     <>
       <Header />
-      <Home />
+      <TermsOfService />
     </>
   );
 }

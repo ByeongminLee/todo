@@ -1,4 +1,5 @@
-import { endOfWeek, startOfWeek } from 'date-fns';
+'use client';
+
 import { useState } from 'react';
 import { DateRange, Matcher } from 'react-day-picker';
 
