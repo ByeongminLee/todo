@@ -15,13 +15,11 @@ const preview: Preview = {
         pathname: '/',
       },
     },
-  },
-};
-
-export const parameters = {
-  options: {
-    storySort: {
-      order: ['DesignSystem', ['Atom', 'Feature', 'Pages']],
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: ['Document', 'DesignSystem', ['Atom', 'Widget', 'Feature', 'Pages']],
+      },
     },
   },
 };
