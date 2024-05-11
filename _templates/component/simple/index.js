@@ -5,7 +5,7 @@ module.exports = {
         type: 'select',
         name: 'category',
         message: 'Which components design level?',
-        choices: ['atom', 'feature', 'pages'],
+        choices: ['atom', 'widget', 'feature', 'pages'],
       },
       {
         type: 'input',
