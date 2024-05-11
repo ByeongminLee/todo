@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import './fonts/pretendard.css';
+@import './fonts/inter.css';
+
+@layer base {
+  * {
+    font-family: 'Pretendard Variable', 'Pretendard', 'inter', system-ui, sans-serif;
+    color: #f3f4f6;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    color: #000000;
+  }
+  body {
+    @apply min-w-[280px];
+  }
+
+  .font-inter {
+    font-family: 'inter', sans-serif;
+  }
+
+  .font-pretendard {
+    font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+  }
+}
