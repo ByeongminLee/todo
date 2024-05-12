@@ -18,13 +18,13 @@
       }
     ],
     "paths": {
-      // "@/*": ["./src/*"],
+      "@/*": ["./src/*"],
       "@/system": ["./src/components/system"],
       "@/atom": ["./src/components/atom"],
       "@/widget": ["./src/components/widget"],
       "@/feature": ["./src/components/feature"],
       "@/pages": ["./src/components/pages"],
-      "@/utils": ["./src/utils"],
+      "@/utils/*": ["./src/utils/*"],
       "@/hooks": ["./src/hooks"],
       "@/styles/*": ["./src/styles/*"]
     }
