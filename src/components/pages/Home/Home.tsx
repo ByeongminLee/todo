@@ -3,6 +3,7 @@
 import { Container } from '@/atom';
 import { loginHandler } from '@/utils';
 import { signOut, useSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 
 export interface HomeProps {}
 
@@ -10,6 +11,9 @@ export const Home = ({}: HomeProps) => {
   const { data: session, status } = useSession();
 
   console.log('status: ', session, status);
+
+  const t = useTranslations('home');
+  console.log('t', t('title'));
 
   return (
     <Container as="main" className="max-w-4xl p-4 mx-auto">
