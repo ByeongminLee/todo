@@ -1,4 +1,4 @@
-import { NotSession } from '@/components';
+import { Header, NotSession, Todo } from '@/components';
 import { authOptions } from '@/utils/server';
 import { getServerSession } from 'next-auth';
 
@@ -11,5 +11,10 @@ export default async function Page() {
     return <NotSession />;
   }
 
-  return <>TODO PAGE</>;
+  return (
+    <>
+      <Header session={session} />
+      <Todo />
+    </>
+  );
 }

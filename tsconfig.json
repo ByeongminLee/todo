@@ -26,6 +26,7 @@
       "@/pages": ["./src/components/pages"],
       "@/utils/*": ["./src/utils/*"],
       "@/hooks": ["./src/hooks"],
+      "@/constants/*": ["./src/constants/*"],
       "@/styles/*": ["./src/styles/*"]
     }
   },

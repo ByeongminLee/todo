@@ -1,6 +1,7 @@
 import { Providers } from '@/system';
 import '@/styles/globals.css';
 import { getMessages } from 'next-intl/server';
+import { Footer } from '@/feature';
 
 export default async function RootLayout({
   children,
@@ -17,6 +18,7 @@ export default async function RootLayout({
         <Providers locale={locale} messages={messages}>
           {children}
         </Providers>
+        <Footer />
       </body>
     </html>
   );
