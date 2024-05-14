@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TermsOfService } from './TermsOfService';
+import { NotFound } from './NotFound';
 
 const meta = {
-  title: 'DesignSystem/Pages/TermsOfService',
-  component: TermsOfService,
+  title: 'DesignSystem/Pages/NotFound',
+  component: NotFound,
   parameters: {
     layout: 'centered',
   },
   argTypes: {},
-} satisfies Meta<typeof TermsOfService>;
+} satisfies Meta<typeof NotFound>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

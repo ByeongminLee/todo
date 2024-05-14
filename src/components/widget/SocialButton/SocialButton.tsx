@@ -4,11 +4,16 @@ import { cn } from '@/utils';
 export interface SocialButtonProps {
   variant: 'kakao' | 'google';
   className?: string;
+  onClick: () => void;
 }
 
-export const SocialButton = ({ variant, className }: SocialButtonProps) => {
+export const SocialButton = ({ variant, className, onClick }: SocialButtonProps) => {
   return (
-    <Button variant="outline" className={cn(styles[variant], className, 'rounded-md')}>
+    <Button
+      variant="outline"
+      className={cn(styles[variant], className, 'rounded-md')}
+      onClick={onClick}
+    >
       <div className={cn('flex items-center w-full p-4')}>
         {variant === 'kakao' ? (
           <KaKaIcon className="w-5 h-5" />
