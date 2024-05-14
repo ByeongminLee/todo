@@ -26,6 +26,7 @@ export const authOptions: AuthOptions = {
   callbacks: {
     session({ session, token, user }) {
       session.id = user.id;
+      session.email = user.email;
       return session;
     },
   },

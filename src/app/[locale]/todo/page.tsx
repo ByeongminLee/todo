@@ -7,7 +7,7 @@ export default async function Page() {
 
   console.log('session', session);
 
-  if (session) {
+  if (!session) {
     return <NotSession />;
   }
 

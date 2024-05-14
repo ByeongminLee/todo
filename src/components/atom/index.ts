@@ -1,3 +1,4 @@
+export * from './Popover';
 export * from './Logo';
 export * from './Skeleton';
 export * from './Container';
