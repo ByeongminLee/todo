@@ -74,6 +74,9 @@ dependencies:
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
+  uuid:
+    specifier: ^9.0.1
+    version: 9.0.1
 
 devDependencies:
   '@chromatic-com/storybook':
@@ -124,6 +127,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18
     version: 18.3.0
+  '@types/uuid':
+    specifier: ^9.0.8
+    version: 9.0.8
   eslint:
     specifier: ^8
     version: 8.57.0

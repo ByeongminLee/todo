@@ -22,6 +22,8 @@ export const Todo = ({}: TodoProps) => {
               priority: 'low',
               dueDate: '2021-10-10',
               status: false,
+              createdAt: '2021-10-10',
+              updatedAt: '2021-10-10',
             },
             {
               id: 'QWER456',
@@ -30,6 +32,8 @@ export const Todo = ({}: TodoProps) => {
               priority: 'low',
               dueDate: '2021-10-10',
               status: false,
+              createdAt: '2021-10-10',
+              updatedAt: '2021-10-10',
             },
           ]}
         />
@@ -42,8 +46,22 @@ export const Todo = ({}: TodoProps) => {
         <div>
           <CategoryList
             list={[
-              { id: 'QWER123', title: '안녕', count: 2, color: '#102FFc' },
-              { id: 'QWER456', title: '세계', count: 1, color: '#Fd4f4d' },
+              {
+                id: 'QWER123',
+                title: '안녕',
+                count: 2,
+                color: '#102FFc',
+                createdAt: '2021-10-10',
+                updatedAt: '2021-10-10',
+              },
+              {
+                id: 'QWER456',
+                title: '세계',
+                count: 1,
+                color: '#Fd4f4d',
+                createdAt: '2021-10-10',
+                updatedAt: '2021-10-10',
+              },
             ]}
           />
         </div>
