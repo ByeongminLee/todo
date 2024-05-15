@@ -1,3 +1,4 @@
+export * from './AddCategory';
 export * from './Footer';
 export * from './TodoList';
 export * from './AddTodo';

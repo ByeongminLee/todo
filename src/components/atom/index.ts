@@ -1,3 +1,4 @@
+export * from './Badge';
 export * from './Combobox';
 export * from './Command';
 export * from './Popover';
