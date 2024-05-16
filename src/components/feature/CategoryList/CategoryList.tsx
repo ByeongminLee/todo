@@ -1,6 +1,13 @@
 import {
   Badge,
+  Button,
   Checkbox,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTrigger,
   Table,
   TableBody,
   TableCell,
@@ -9,6 +16,7 @@ import {
   TableRow,
 } from '@/atom';
 import { CategoryWithCount } from '@/types';
+import { Trash2 } from 'lucide-react';
 
 export interface CategoryListProps {
   list: CategoryWithCount[];
@@ -19,8 +27,9 @@ export const CategoryList = ({ list }: CategoryListProps) => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>카테고리</TableHead>
-          <TableHead>사용횟수</TableHead>
+          <TableHead className="w-[50%]">카테고리</TableHead>
+          <TableHead className="text-center">사용횟수</TableHead>
+          <TableHead className="text-center">삭제</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -35,7 +44,23 @@ export const CategoryList = ({ list }: CategoryListProps) => {
                 {item.title}
               </Badge>
             </TableCell>
-            <TableCell>{item.count}</TableCell>
+            <TableCell className="text-center">{item.count}</TableCell>
+            <TableCell className="flex justify-center">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Trash2 className="h-8 w-8 hover:bg-gray-200 p-2 rounded-full cursor-pointer" />
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>카테고리 삭제하기</DialogHeader>
+                  <DialogDescription>
+                    해당 카테고리를 사용하는 ToDo는 삭제 되지 않습니다.
+                  </DialogDescription>
+                  <DialogFooter>
+                    <Button className="bg-red-500">삭제</Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
