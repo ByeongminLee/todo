@@ -38,7 +38,7 @@ export const AddCategory = ({}: AddCategoryProps) => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="mx-auto sm:mx-0">TODO 리스트 추가</DialogTitle>
+          <DialogTitle className="mx-auto sm:mx-0">카테고리 추가</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(addCategory)}>
           <div className="flex flex-col gap-6 my-8">
