@@ -11,7 +11,7 @@ const schema = z.object({
   color: z.string({ required_error: '색상을 선택해주세요' }),
 });
 
-type AddTodoType = z.infer<typeof schema>;
+type AddCategoryType = z.infer<typeof schema>;
 
 export default function useAddCategory() {
   const {
@@ -19,7 +19,7 @@ export default function useAddCategory() {
     handleSubmit,
     formState: { errors },
     control,
-  } = useForm<AddTodoType>({
+  } = useForm<AddCategoryType>({
     resolver: zodResolver(schema),
   });
 
