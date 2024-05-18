@@ -13,29 +13,24 @@ import {
   Label,
 } from '@/atom';
 import { PRIORITY_LIST } from '@/constants';
-import { DatePicker } from '@/widget';
+import { DatePicker, ErrorMessage } from '@/widget';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
+import useAddTodo from './useAddTodo';
+import { Controller } from 'react-hook-form';
 
 export interface AddTodoProps {
   categoryLists: ComboBoxList;
-  category: string;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-  priority: string;
-  setPriority: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const AddTodo = ({
-  categoryLists,
-  category,
-  setCategory,
-  priority,
-  setPriority,
-}: AddTodoProps) => {
+export const AddTodo = ({ categoryLists }: AddTodoProps) => {
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
 
-  const addTodoHandler = () => {
+  const { register, handleSubmit, errors, control } = useAddTodo();
+
+  const addTodo = (data: any) => {
+    console.log('data', data);
     onClose();
   };
 
@@ -50,41 +45,71 @@ export const AddTodo = ({
         <DialogHeader>
           <DialogTitle className="mx-auto sm:mx-0">TODO 리스트 추가</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col gap-6 my-8">
-          <div className="flex flex-col gap-2">
-            <Label>할 일</Label>
-            <Input />
-          </div>
-          <div className="flex flex-col gap-2">
-            <Label>기한</Label>
-            <DatePicker />
-          </div>
-          <div className="flex gap-4">
-            <div className="flex flex-col gap-2">
-              <Label>카테고리</Label>
-              <Combobox
-                placeholder="카테고리를 선택하세요."
-                lists={categoryLists}
-                selected={category}
-                setSelected={setCategory}
-              />
+        <form onSubmit={handleSubmit(addTodo)}>
+          <div className="my-8">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <Label>할 일</Label>
+                <Input
+                  {...register('title')}
+                  name="title"
+                  placeholder="할 일을 입력해주세요"
+                />
+                <ErrorMessage error={errors.title} message={errors.title?.message} />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label>기한</Label>
+                <Controller
+                  name="dueDate"
+                  control={control}
+                  render={({ field }) => (
+                    <DatePicker date={field.value} setDate={field.onChange} />
+                  )}
+                />
+                <ErrorMessage error={errors.dueDate} message={errors.dueDate?.message} />
+              </div>
+              <div className="flex gap-4">
+                <div className="flex flex-col gap-2">
+                  <Label>카테고리</Label>
+                  <Controller
+                    name="category"
+                    control={control}
+                    render={({ field }) => (
+                      <Combobox
+                        placeholder="카테고리를 선택하세요."
+                        lists={categoryLists}
+                        selected={field.value}
+                        setSelected={field.onChange}
+                      />
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Label>중요도</Label>
+                  <Controller
+                    name="priority"
+                    control={control}
+                    render={({ field }) => (
+                      <Combobox
+                        placeholder="중요도를 선택하세요."
+                        lists={PRIORITY_LIST}
+                        selected={field.value}
+                        setSelected={field.onChange}
+                      />
+                    )}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <Label>중요도</Label>
-              <Combobox
-                placeholder="중요도를 선택하세요."
-                lists={PRIORITY_LIST}
-                selected={priority}
-                setSelected={setPriority}
-              />
+            <div className="mt-2 flex flex-col gap-2">
+              <ErrorMessage error={errors.category} message={errors.category?.message} />
+              <ErrorMessage error={errors.priority} message={errors.priority?.message} />
             </div>
           </div>
-        </div>
-        <DialogFooter>
-          <Button onClick={() => addTodoHandler()} type="submit">
-            추가
-          </Button>
-        </DialogFooter>
+          <DialogFooter>
+            <Button type="submit">추가</Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );

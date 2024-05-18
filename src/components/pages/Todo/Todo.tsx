@@ -1,13 +1,8 @@
 'use client';
 import { Container } from '@/atom';
 import { TodoList, AddTodo, AddCategory, CategoryList } from '@/feature';
-import { useState } from 'react';
 
-export interface TodoProps {}
 
-export const Todo = ({}: TodoProps) => {
-  const [category, setCategory] = useState('');
-  const [priority, setPriority] = useState('');
 
   return (
     <Container as="main" className="max-w-4xl p-4 mx-auto">
@@ -71,10 +66,6 @@ export const Todo = ({}: TodoProps) => {
           { label: '안녕', value: '안녕' },
           { label: '세계', value: '세계' },
         ]}
-        category={category}
-        setCategory={setCategory}
-        priority={priority}
-        setPriority={setPriority}
       />
     </Container>
   );
