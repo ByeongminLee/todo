@@ -19,6 +19,7 @@ export default function useAddCategory() {
     handleSubmit,
     formState: { errors },
     control,
+    reset,
   } = useForm<AddCategoryType>({
     resolver: zodResolver(schema),
   });
@@ -28,5 +29,6 @@ export default function useAddCategory() {
     handleSubmit,
     errors,
     control,
+    reset,
   };
 }

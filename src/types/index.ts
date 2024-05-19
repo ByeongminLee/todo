@@ -9,6 +9,20 @@ export interface TodoDTO {
   updatedAt: string;
 }
 
+export interface TodoWithCategory {
+  id: string;
+  status: boolean;
+  title: string;
+  priority: PriorityType;
+  dueDate: string;
+  createdAt: string;
+  updatedAt: string;
+  category?: {
+    title: string;
+    color: string;
+  };
+}
+
 export type PriorityType = 'low' | 'medium' | 'high';
 
 export interface CategoryDTO {

@@ -21,6 +21,7 @@ export default function useAddTodo() {
     handleSubmit,
     formState: { errors },
     control,
+    reset,
   } = useForm<AddTodoType>({
     resolver: zodResolver(schema),
   });
@@ -30,5 +31,6 @@ export default function useAddTodo() {
     handleSubmit,
     errors,
     control,
+    reset,
   };
 }

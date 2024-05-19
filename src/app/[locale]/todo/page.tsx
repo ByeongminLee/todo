@@ -5,16 +5,14 @@ import { getServerSession } from 'next-auth';
 export default async function Page() {
   const session = await getServerSession(authOptions);
 
-  console.log('session', session);
-
-  if (!session) {
+  if (!session || !session.user) {
     return <NotSession />;
   }
 
   return (
     <>
       <Header session={session} />
-      <Todo />
+      <Todo session={session} />
     </>
   );
 }

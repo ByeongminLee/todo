@@ -16,18 +16,40 @@ import { CirclePicker } from 'react-color';
 import useAddCategory from './useAddCategory';
 import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@/components';
+import { useMutation } from '@tanstack/react-query';
+import { fetcher } from '@/utils';
+import { queryClient } from '@/components/system';
 
-export interface AddCategoryProps {}
+export interface AddCategoryProps {
+  userId: string;
+}
 
-export const AddCategory = ({}: AddCategoryProps) => {
+export const AddCategory = ({ userId }: AddCategoryProps) => {
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
   const [color, setColor] = useState('#b6b6b6');
 
-  const { register, handleSubmit, errors, control } = useAddCategory();
+  const { register, handleSubmit, errors, control, reset } = useAddCategory();
+
+  const { mutate } = useMutation({
+    mutationKey: ['/category/create'],
+    mutationFn: value =>
+      fetcher({
+        method: 'POST',
+        url: '/category/create',
+        body: value,
+        headers: {
+          Authorization: `Bearer ${userId}`,
+        },
+      }).then(res => res.data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/category/find-all'] });
+    },
+  });
 
   const addCategory = (data: any) => {
-    console.log('data', data);
+    mutate(data);
+    reset();
     onClose();
   };
 

@@ -1,7 +1,6 @@
 import {
   Badge,
   Button,
-  Checkbox,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -17,12 +16,15 @@ import {
 } from '@/atom';
 import { CategoryWithCount } from '@/types';
 import { Trash2 } from 'lucide-react';
+import useCategoryList from './useCategoryList';
 
 export interface CategoryListProps {
   list: CategoryWithCount[];
+  userId: string;
 }
 
-export const CategoryList = ({ list }: CategoryListProps) => {
+export const CategoryList = ({ list, userId }: CategoryListProps) => {
+  const { deleteCategory } = useCategoryList({ userId: userId });
   return (
     <Table>
       <TableHeader>
@@ -56,7 +58,12 @@ export const CategoryList = ({ list }: CategoryListProps) => {
                     해당 카테고리를 사용하는 ToDo는 삭제 되지 않습니다.
                   </DialogDescription>
                   <DialogFooter>
-                    <Button className="bg-red-500">삭제</Button>
+                    <Button
+                      className="bg-red-500"
+                      onClick={() => deleteCategory({ categoryId: item.id })}
+                    >
+                      삭제
+                    </Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>

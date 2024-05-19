@@ -18,19 +18,41 @@ import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import useAddTodo from './useAddTodo';
 import { Controller } from 'react-hook-form';
+import { useMutation } from '@tanstack/react-query';
+import { fetcher } from '@/utils';
+import { queryClient } from '@/components/system';
 
 export interface AddTodoProps {
   categoryLists: ComboBoxList;
+  userId: string;
 }
 
-export const AddTodo = ({ categoryLists }: AddTodoProps) => {
+export const AddTodo = ({ categoryLists, userId }: AddTodoProps) => {
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
 
-  const { register, handleSubmit, errors, control } = useAddTodo();
+  const { register, handleSubmit, errors, control, reset } = useAddTodo();
+
+  const { mutate } = useMutation({
+    mutationKey: ['/todo/create'],
+    mutationFn: value =>
+      fetcher({
+        method: 'POST',
+        url: '/todo/create',
+        body: value,
+        headers: {
+          Authorization: `Bearer ${userId}`,
+        },
+      }).then(res => res.data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/todo/find-all'] });
+    },
+  });
 
   const addTodo = (data: any) => {
     console.log('data', data);
+    mutate(data);
+    reset();
     onClose();
   };
 
