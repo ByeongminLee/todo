@@ -1,9 +1,12 @@
 'use client';
 
+import { TodoDTO } from '@/types';
 import { fetcher } from '@/utils';
 import { useQuery } from '@tanstack/react-query';
 
 export default function useTodo({ userId }: { userId: string }) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
   const { data: todoData, isLoading: isTodoLoading } = useQuery({
     queryKey: ['/todo/find-all'],
     queryFn: () =>
@@ -23,8 +26,6 @@ export default function useTodo({ userId }: { userId: string }) {
         headers: { Authorization: `Bearer ${userId}` },
       }),
   });
-
-  console.log('todoData', todoData);
 
   if (!todoData || !categoryData) {
     return {
@@ -59,11 +60,27 @@ export default function useTodo({ userId }: { userId: string }) {
     value: category.title,
   }));
 
+  const todayDueDateCount = todoListSorted.filter(
+    (item: TodoDTO) =>
+      today.getTime() === new Date(item.dueDate).getTime() && item.status === false,
+  ).length;
+  const afterDueDateCount = todoListSorted.filter(
+    (item: TodoDTO) => item.status === false,
+  ).length;
+  const expiredDueDateCount = todoListSorted.filter(
+    (item: TodoDTO) => item.status === true,
+  ).length;
+
   return {
     isTodoLoading,
     isCategoryLoading,
     todoList: todoListSorted,
     categoryList,
     categoryLabel,
+    count: {
+      today: todayDueDateCount ?? 0,
+      after: afterDueDateCount ?? 0,
+      complete: expiredDueDateCount ?? 0,
+    },
   };
 }
