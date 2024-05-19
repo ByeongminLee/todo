@@ -8,6 +8,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from './Pagination';
+import { usePagination } from './usePagination';
+import { StoryFrame } from '@/components/system';
 
 const meta = {
   title: 'DesignSystem/Atom/Pagination',
@@ -47,4 +49,25 @@ export const Example: Story = {
       </PaginationContent>
     </Pagination>
   ),
+};
+
+export const PaginationHook: Story = {
+  args: {},
+  render: () => {
+    const list = Array.from({ length: 65 }, (_, index) => index + 1);
+    const limit = 10;
+
+    const { paginationList, render } = usePagination({ list, limit });
+
+    return (
+      <StoryFrame>
+        <ul className="typography-list">
+          {paginationList.map(item => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        {render()}
+      </StoryFrame>
+    );
+  },
 };
