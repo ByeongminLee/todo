@@ -11,7 +11,6 @@ export async function POST(request: Request) {
 
   const req = await request.json();
 
-  requestErrorCheck(req.status, 'Missing status');
   requestErrorCheck(req.title, 'Missing title');
   requestErrorCheck(req.category, 'Missing category');
   requestErrorCheck(req.priority, 'Missing priority');
@@ -22,7 +21,7 @@ export async function POST(request: Request) {
   try {
     const data = await todoService.create({
       userId: authorization,
-      status: req.status,
+      status: req.status || false,
       title: req.title,
       category: req.category,
       priority: req.priority,

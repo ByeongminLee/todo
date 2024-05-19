@@ -102,7 +102,7 @@ class TodoService {
 
     const updateDataById = {
       ...dataById,
-      status: status ? status : dataById.status,
+      status: status,
       title: title ? title : dataById.title,
       category: category ? category : dataById.category,
       priority: priority ? priority : dataById.priority,
