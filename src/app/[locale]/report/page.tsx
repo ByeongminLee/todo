@@ -1,6 +1,7 @@
 import { Header, NotSession, Todo } from '@/components';
 import { authOptions } from '@/utils/server';
 import { getServerSession } from 'next-auth';
+import { Report } from '@/pages';
 
 export default async function Page() {
   const session = await getServerSession(authOptions);
@@ -12,7 +13,7 @@ export default async function Page() {
   return (
     <>
       <Header session={session} />
-      <Todo />
+      <Report />
     </>
   );
 }

@@ -1,4 +1,5 @@
 export * from './TodoStatus';
+export * from './BarChart';
 export * from './Pagination';
 export * from './Table';
 export * from './Badge';
