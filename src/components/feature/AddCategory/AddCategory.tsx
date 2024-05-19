@@ -19,15 +19,15 @@ import { ErrorMessage } from '@/components';
 import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '@/utils';
 import { queryClient } from '@/components/system';
+import { useUserStore } from '@/store/user.store';
 
-export interface AddCategoryProps {
-  userId: string;
-}
+export interface AddCategoryProps {}
 
-export const AddCategory = ({ userId }: AddCategoryProps) => {
+export const AddCategory = ({}: AddCategoryProps) => {
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
   const [color, setColor] = useState('#b6b6b6');
+  const { userId } = useUserStore();
 
   const { register, handleSubmit, errors, control, reset } = useAddCategory();
 

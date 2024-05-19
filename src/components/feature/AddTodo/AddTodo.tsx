@@ -21,15 +21,16 @@ import { Controller } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '@/utils';
 import { queryClient } from '@/components/system';
+import { useUserStore } from '@/store/user.store';
 
 export interface AddTodoProps {
   categoryLists: ComboBoxList;
-  userId: string;
 }
 
-export const AddTodo = ({ categoryLists, userId }: AddTodoProps) => {
+export const AddTodo = ({ categoryLists }: AddTodoProps) => {
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
+  const { userId } = useUserStore();
 
   const { register, handleSubmit, errors, control, reset } = useAddTodo();
 

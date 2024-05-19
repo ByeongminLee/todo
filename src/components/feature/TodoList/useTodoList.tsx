@@ -1,9 +1,12 @@
 'use client';
 import { queryClient } from '@/components/system';
+import { useUserStore } from '@/store/user.store';
 import { fetcher } from '@/utils';
 import { useMutation } from '@tanstack/react-query';
 
-export default function useTodoList({ userId }: { userId: string }) {
+export default function useTodoList() {
+  const { userId } = useUserStore();
+
   const { mutate } = useMutation({
     mutationKey: ['/todo/updates'],
     mutationFn: ({ todoId, status }: { todoId: string; status: boolean }) =>

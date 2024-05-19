@@ -20,11 +20,11 @@ import useCategoryList from './useCategoryList';
 
 export interface CategoryListProps {
   list: CategoryWithCount[];
-  userId: string;
 }
 
-export const CategoryList = ({ list, userId }: CategoryListProps) => {
-  const { deleteCategory } = useCategoryList({ userId: userId });
+export const CategoryList = ({ list }: CategoryListProps) => {
+  const { deleteCategory } = useCategoryList();
+
   return (
     <Table>
       <TableHeader>

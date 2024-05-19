@@ -23,12 +23,23 @@ import { Session } from 'next-auth';
 import { PopoverTrigger } from '@radix-ui/react-popover';
 import { BarChart3, LogOut, NotebookPen } from 'lucide-react';
 import { signOut } from 'next-auth/react';
+import { useUserStore } from '@/store/user.store';
 
 export interface HeaderProps {
   session?: Session | null;
 }
 
 export const Header = ({ session }: HeaderProps) => {
+  const { actions, userId } = useUserStore();
+
+  if (session && !userId) {
+    actions.setUser({ userId: session.id });
+  }
+
+  if (!session && userId) {
+    actions.logoutState();
+  }
+
   return (
     <Container
       as="header"
@@ -37,13 +48,19 @@ export const Header = ({ session }: HeaderProps) => {
       <nav className="w-full max-w-6xl mx-auto p-4 flex justify-between">
         <Logo />
         {!session && <GetStarted />}
-        {session && <Users session={session} />}
+        {session && <Users session={session} logoutState={actions.logoutState} />}
       </nav>
     </Container>
   );
 };
 
-const Users = ({ session }: { session: Session }) => {
+const Users = ({
+  session,
+  logoutState,
+}: {
+  session: Session;
+  logoutState: () => void;
+}) => {
   return (
     <Container>
       <Popover>
@@ -74,7 +91,13 @@ const Users = ({ session }: { session: Session }) => {
               </p>
             </PopoverButton>
           </Link>
-          <PopoverButton className={'mt-2 hover:bg-red-50'} onClick={() => signOut()}>
+          <PopoverButton
+            className={'mt-2 hover:bg-red-50'}
+            onClick={() => {
+              signOut();
+              logoutState();
+            }}
+          >
             <p className="typography-sm text-red-500 flex gap-2 items-center">
               <LogOut className="w-4" /> Logout
             </p>

@@ -1,10 +1,13 @@
 'use client';
 
 import { queryClient } from '@/components/system';
+import { useUserStore } from '@/store/user.store';
 import { fetcher } from '@/utils';
 import { useMutation } from '@tanstack/react-query';
 
-export default function useCategoryList({ userId }: { userId: string }) {
+export default function useCategoryList() {
+  const { userId } = useUserStore();
+
   const { mutate: deleteCategory } = useMutation({
     mutationKey: ['/category/delete'],
     mutationFn: ({ categoryId }: { categoryId: string }) =>

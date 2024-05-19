@@ -16,12 +16,11 @@ import useTodoList from './useTodoList';
 import { cn } from '@/utils';
 
 export interface TodoListProps {
-  userId: string;
   list: TodoWithCategory[];
 }
 
-export const TodoList = ({ userId, list }: TodoListProps) => {
-  const { updateTodo } = useTodoList({ userId });
+export const TodoList = ({ list }: TodoListProps) => {
+  const { updateTodo } = useTodoList();
 
   return (
     <Table>
