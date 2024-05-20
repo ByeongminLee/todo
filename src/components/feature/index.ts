@@ -1,3 +1,5 @@
+export * from './Features';
+export * from './Hero';
 export * from './CategoryList';
 export * from './AddCategory';
 export * from './Footer';

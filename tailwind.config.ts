@@ -9,6 +9,28 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx,json,css,mdx}',
   ],
   theme: {
+    extend: {
+      animation: {
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
+        orbit: 'orbit calc(var(--duration)*1s) linear infinite',
+      },
+      keyframes: {
+        'border-beam': {
+          '100%': {
+            'offset-distance': '100%',
+          },
+        },
+        orbit: {
+          '0%': {
+            transform: 'rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)',
+          },
+          '100%': {
+            transform:
+              'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)',
+          },
+        },
+      },
+    },
     colors: {
       ...colors,
       border: 'hsl(var(--border))',

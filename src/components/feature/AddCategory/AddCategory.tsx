@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { CirclePicker } from 'react-color';
 import useAddCategory from './useAddCategory';
 import { Controller } from 'react-hook-form';
-import { ErrorMessage } from '@/components';
+import { ErrorMessage } from '@/widget';
 import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '@/utils';
 import { queryClient } from '@/components/system';

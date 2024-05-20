@@ -1,3 +1,7 @@
+export * from './TextReveal';
+export * from './OrbitingCircles';
+export * from './BentoGrid';
+export * from './BorderBeam';
 export * from './TodoStatus';
 export * from './BarChart';
 export * from './Pagination';

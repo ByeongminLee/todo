@@ -9,12 +9,20 @@ import {
 } from 'recharts';
 
 export interface BarChartProps {
+  className?: string;
   data: { name: string; value: number }[];
+  width?: number | string;
+  height?: number | string;
 }
 
-export const BarChart = ({ data }: BarChartProps) => {
+export const BarChart = ({
+  className,
+  data,
+  width = '100%',
+  height = 350,
+}: BarChartProps) => {
   return (
-    <ResponsiveContainer width="100%" height={350}>
+    <ResponsiveContainer width={width} height={height} className={className}>
       <RechartBarChart data={data}>
         <XAxis
           dataKey="name"

@@ -27,20 +27,20 @@ export const Footer = ({}: FooterProps) => {
               </Link>
             </li>
             <li>
-              <a href={`mailto:${INFO.MAIL}`} className="hover:underline">
+              <Link href={`mailto:${INFO.MAIL}`} className="hover:underline">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-cente">
+        <p className="block text-sm text-gray-500 sm:text-cente">
           © 2024{' '}
           <Link href="/" className="hover:underline">
             Todo™
           </Link>
           . All Rights Reserved.
-        </span>
+        </p>
       </div>
     </footer>
   );

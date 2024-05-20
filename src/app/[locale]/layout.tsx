@@ -1,7 +1,13 @@
 import { Providers } from '@/system';
 import '@/styles/globals.css';
 import { getMessages } from 'next-intl/server';
-import { Footer } from '@/feature';
+import dynamic from 'next/dynamic';
+const Footer = dynamic(
+  () => import('../../components/feature/Footer').then(module => module.Footer),
+  {
+    ssr: false,
+  },
+);
 
 export default async function RootLayout({
   children,

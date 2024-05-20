@@ -51,7 +51,6 @@ export const AddTodo = ({ categoryLists }: AddTodoProps) => {
   });
 
   const addTodo = (data: any) => {
-    console.log('data', data);
     mutate(data);
     reset();
     onClose();
