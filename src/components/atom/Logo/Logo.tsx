@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/utils';
 
@@ -19,20 +18,18 @@ export const Logo = ({
   return (
     <>
       {variant === 'simple' ? (
-        <Link href="/">
-          <Image
-            src="/assets/imgs/logo.png"
-            width={width}
-            height={height}
-            alt="logo"
-            className={cn(className)}
-          />
-        </Link>
+        <Image
+          src="/assets/imgs/logo.png"
+          width={width}
+          height={height}
+          alt="logo"
+          className={cn(className)}
+        />
       ) : (
-        <Link className="flex items-center" href="/">
+        <div className="flex items-center">
           <Image src="/assets/imgs/logo.png" width={width} height={height} alt="logo" />
           <h1 className={cn(className, 'typography-h3 pl-2')}>To Do</h1>
-        </Link>
+        </div>
       )}
     </>
   );
