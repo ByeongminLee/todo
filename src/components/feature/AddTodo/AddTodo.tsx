@@ -22,12 +22,14 @@ import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '@/utils';
 import { queryClient } from '@/components/system';
 import { useUserStore } from '@/store/user.store';
+import { useTranslations } from 'next-intl';
 
 export interface AddTodoProps {
   categoryLists: ComboBoxList;
 }
 
 export const AddTodo = ({ categoryLists }: AddTodoProps) => {
+  const t = useTranslations('addTodo');
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
   const { userId } = useUserStore();
@@ -65,22 +67,22 @@ export const AddTodo = ({ categoryLists }: AddTodoProps) => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="mx-auto sm:mx-0">TODO 리스트 추가</DialogTitle>
+          <DialogTitle className="mx-auto sm:mx-0">{t('title')}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(addTodo)}>
           <div className="my-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <Label>할 일</Label>
+                <Label>{t('form1.label')}</Label>
                 <Input
                   {...register('title')}
                   name="title"
-                  placeholder="할 일을 입력해주세요"
+                  placeholder={t('form1.placeholder')}
                 />
                 <ErrorMessage error={errors.title} message={errors.title?.message} />
               </div>
               <div className="flex flex-col gap-2">
-                <Label>기한</Label>
+                <Label>{t('form2.label')}</Label>
                 <Controller
                   name="dueDate"
                   control={control}
@@ -92,13 +94,13 @@ export const AddTodo = ({ categoryLists }: AddTodoProps) => {
               </div>
               <div className="flex gap-4">
                 <div className="flex flex-col gap-2">
-                  <Label>카테고리</Label>
+                  <Label>{t('form3.label')}</Label>
                   <Controller
                     name="category"
                     control={control}
                     render={({ field }) => (
                       <Combobox
-                        placeholder="카테고리를 선택하세요."
+                        placeholder={t('form3.placeholder')}
                         lists={categoryLists}
                         selected={field.value}
                         setSelected={field.onChange}
@@ -107,13 +109,13 @@ export const AddTodo = ({ categoryLists }: AddTodoProps) => {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Label>중요도</Label>
+                  <Label>{t('form4.label')}</Label>
                   <Controller
                     name="priority"
                     control={control}
                     render={({ field }) => (
                       <Combobox
-                        placeholder="중요도를 선택하세요."
+                        placeholder={t('form4.placeholder')}
                         lists={PRIORITY_LIST}
                         selected={field.value}
                         setSelected={field.onChange}
@@ -129,7 +131,7 @@ export const AddTodo = ({ categoryLists }: AddTodoProps) => {
             </div>
           </div>
           <DialogFooter>
-            <Button type="submit">추가</Button>
+            <Button type="submit">{t('submit')}</Button>
           </DialogFooter>
         </form>
       </DialogContent>

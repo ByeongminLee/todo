@@ -1,5 +1,114 @@
 {
+  "not-found": {
+    "title": "Page not found",
+    "button": "Go back to home page"
+  },
+  "not-session": {
+    "title": "Please log in to access this page",
+    "button": "Go back to home page"
+  },
+  "get-started": {
+    "description": "Please use the To Do service by social logIn",
+    "privacy-policy": "Privacy Policy",
+    "terms-of-service": "Terms of Service"
+  },
+  "loginForm": {
+    "kakao": "Start with Kakao",
+    "google": "Start with Google"
+  },
   "home": {
-    "title": "i18n Example"
+    "hero": {
+      "description": "Got a lot to do? With Todo, everything becomes easier. Organize your tasks and achieve your goals effortlessly. With a user-friendly design, anyone can use it easily. Make your day more productive! We'll be your reliable partner."
+    },
+    "features": {
+      "data1": {
+        "name": "Charts",
+        "description": "Displays statistics of your Todo list in charts"
+      },
+      "data2": {
+        "name": "Schedule",
+        "description": "Check your remaining schedule"
+      },
+      "data3": {
+        "name": "Multilingual Support",
+        "description": "Supports multiple languages"
+      },
+      "data4": {
+        "name": "Categories",
+        "description": "Create various custom categories to organize your tasks"
+      },
+      "data5": {
+        "name": "Social Login",
+        "description": "Start easily with social login"
+      },
+      "data6": {
+        "name": "Charts",
+        "description": "Displays statistics of your Todo list in charts"
+      }
+    }
+  },
+  "todo": {
+    "header1": "To do",
+    "header2": "My Categories"
+  },
+  "todoList": {
+    "header1": "To do",
+    "header2": "Category",
+    "header3": "Priority",
+    "header4": "Due Date",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "todoStatus": {
+    "today": "Today Todo",
+    "after": "Remaining Todo",
+    "complete": "Completed Todo"
+  },
+  "addCategory": {
+    "button": "Add Category",
+    "title": "Add Category",
+    "category": {
+      "label": "Category Name",
+      "placeholder": "Enter category name"
+    },
+    "color": {
+      "label": "Color"
+    },
+    "submit": "Confirm"
+  },
+  "categoryList": {
+    "header1": "Category",
+    "header2": "Count",
+    "header3": "Delete",
+    "dialog": {
+      "title": "Delete Category",
+      "description": "Jobs that use that category are not deleted.",
+      "button": "Delete"
+    }
+  },
+  "addTodo": {
+    "title": "Add TODO List",
+    "form1": {
+      "label": "Task",
+      "placeholder": "Enter your task"
+    },
+    "form2": {
+      "label": "Deadline"
+    },
+    "form3": {
+      "label": "Category",
+      "placeholder": "Select a category"
+    },
+    "form4": {
+      "label": "Priority",
+      "placeholder": "Select a priority"
+    },
+    "submit": "Add"
+  },
+  "report": {
+    "header1": "Tasks Added Monthly",
+    "header2": "Monthly Completion Record",
+    "header3": "Number of Tasks by Category"
   }
 }

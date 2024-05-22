@@ -5,9 +5,15 @@ export interface SocialButtonProps {
   variant: 'kakao' | 'google';
   className?: string;
   onClick: () => void;
+  label?: string;
 }
 
-export const SocialButton = ({ variant, className, onClick }: SocialButtonProps) => {
+export const SocialButton = ({
+  variant,
+  className,
+  onClick,
+  label,
+}: SocialButtonProps) => {
   return (
     <Button
       variant="outline"
@@ -21,7 +27,7 @@ export const SocialButton = ({ variant, className, onClick }: SocialButtonProps)
           <GoogleIcon className="w-5 h-5" />
         )}
         <span className="w-full leading-[24px] text-[18px] text-center text-[#000000] pl-4">
-          {label[variant]}
+          {label ?? defaultLabel[variant]}
         </span>
       </div>
     </Button>
@@ -33,7 +39,7 @@ const styles = {
   google: 'bg-white border border-[#ececec]',
 };
 
-const label = {
+const defaultLabel = {
   kakao: '카카오로 시작하기',
   google: 'Google로 시작하기',
 };

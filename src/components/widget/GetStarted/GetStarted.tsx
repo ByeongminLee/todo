@@ -11,6 +11,7 @@ import {
 } from '@/atom';
 import { LoginForm } from '@/feature';
 import { cn } from '@/utils';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export interface GetStartedProps {
@@ -19,6 +20,7 @@ export interface GetStartedProps {
 }
 
 export const GetStarted = ({ className, variant }: GetStartedProps) => {
+  const t = useTranslations('get-started');
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -31,9 +33,7 @@ export const GetStarted = ({ className, variant }: GetStartedProps) => {
           <DialogTitle className="mx-auto sm:mx-0">
             <Logo width={20} height={20} />
           </DialogTitle>
-          <DialogDescription className="">
-            소셜 로그인을 하여 To Do 서비스를 이용하세요
-          </DialogDescription>
+          <DialogDescription className="">{t('description')}</DialogDescription>
         </DialogHeader>
 
         <LoginForm />
@@ -43,13 +43,13 @@ export const GetStarted = ({ className, variant }: GetStartedProps) => {
             href="privacy-policy"
             className="typography-muted text-xs hover:text-gray-700"
           >
-            개인정보처리방침
+            {t('privacy-policy')}
           </Link>
           <Link
             href="terms-of-service"
             className="typography-muted text-xs hover:text-gray-700"
           >
-            서비스이용약관
+            {t('terms-of-service')}
           </Link>
         </DialogFooter>
       </DialogContent>

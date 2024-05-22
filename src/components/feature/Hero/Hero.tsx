@@ -3,6 +3,7 @@ import { BorderBeam } from '@/atom';
 import { GetStarted } from '@/widget';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export interface HeroProps {}
 
@@ -37,6 +38,7 @@ const imageMotion = {
 };
 
 export const Hero = ({}: HeroProps) => {
+  const t = useTranslations('home.hero');
   return (
     <div className="w-full flex flex-col justify-center">
       <motion.h1
@@ -57,9 +59,7 @@ export const Hero = ({}: HeroProps) => {
         variants={descriptionMotion}
         className="text-center typography-h4 font-normal text-secondary-foreground mt-16"
       >
-        할 일이 많으신가요? Todo와 함께라면 모든 것이 간편해집니다. 할 일을 정리하고,
-        목표를 쉽게 이루어보세요. 사용자 친화적인 디자인으로 누구나 쉽게 사용할 수 있어요.
-        당신의 하루를 더 알차게 만들어보세요! 당신의 든든한 파트너가 되어드릴게요.
+        {t('description')}
       </motion.h4>
       <motion.div
         initial="initial"
@@ -78,7 +78,7 @@ export const Hero = ({}: HeroProps) => {
         variants={imageMotion}
         className="flex justify-center mt-12 relative rounded-xl mb-64"
       >
-        <Image src="/assets/imgs/logo.png" width={300} height={200} alt="img" />
+        <Image src="/assets/imgs/hero.png" width={500} height={500} alt="img" />
         <BorderBeam />
       </motion.div>
     </div>

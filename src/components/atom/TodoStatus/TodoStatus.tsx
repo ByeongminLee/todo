@@ -4,12 +4,14 @@ import { cn } from '@/utils';
 import { useDataStore } from '@/store/data.store';
 import { format } from 'date-fns';
 import { Calendar } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export interface TodoStatusProps {
   className?: string;
 }
 
 export const TodoStatus = ({ className }: TodoStatusProps) => {
+  const t = useTranslations('todoStatus');
   const actions = useDataStore(state => state.actions);
   const { today, after, complete } = actions.count();
 
@@ -20,9 +22,9 @@ export const TodoStatus = ({ className }: TodoStatusProps) => {
         {format(new Date(), 'yyyy-MM-dd')}
       </p>
       <div className={cn('flex sm:flex-row gap-4 flex-col', className)}>
-        <StatusCard title="오늘 할일" value={today ?? 0} />
-        <StatusCard title="남은 할일" value={after ?? 0} />
-        <StatusCard title="완료된 할일" value={complete ?? 0} />
+        <StatusCard title={t('today')} value={today ?? 0} />
+        <StatusCard title={t('after')} value={after ?? 0} />
+        <StatusCard title={t('complete')} value={complete ?? 0} />
       </div>
     </>
   );

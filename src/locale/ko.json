@@ -1,5 +1,114 @@
 {
+  "not-found": {
+    "title": "잘못된 페이지 입니다.",
+    "button": "홈으로 가기"
+  },
+  "not-session": {
+    "title": "로그인 후 이용해주세요",
+    "button": "홈으로 가기"
+  },
+  "get-started": {
+    "description": "소셜 로그인을 하여 To Do 서비스를 이용하세요",
+    "privacy-policy": "개인정보 처리방침",
+    "terms-of-service": "서비스 이용약관"
+  },
+  "loginForm": {
+    "kakao": "카카오로 시작하기",
+    "google": "구글로 시작하기"
+  },
   "home": {
-    "title": "i18n 예제"
+    "hero": {
+      "description": "할 일이 많으신가요? Todo와 함께라면 모든 것이 간편해집니다. 할 일을 정리하고, 목표를 쉽게 이루어보세요. 사용자 친화적인 디자인으로 누구나 쉽게 사용할 수 있어요. 당신의 하루를 더 알차게 만들어보세요! 당신의 든든한 파트너가 되어드릴게요."
+    },
+    "features": {
+      "data1": {
+        "name": "차트",
+        "description": "나의 Todo 리스트 통계를 차트로 보여줍니다"
+      },
+      "data2": {
+        "name": "일정",
+        "description": "남은 일정을 확인할 수 있습니다"
+      },
+      "data3": {
+        "name": "다국어 지원",
+        "description": "여러 언어를 지원합니다"
+      },
+      "data4": {
+        "name": "카테고리",
+        "description": "다양한 커스텀 카테고리를 만들어 분류합니다"
+      },
+      "data5": {
+        "name": "소셜 로그인",
+        "description": "소셜 로그인으로 간편하게 시작하세요"
+      },
+      "data6": {
+        "name": "차트",
+        "description": "나의 Todo 리스트 통계를 차트로 보여줍니다"
+      }
+    }
+  },
+  "todo": {
+    "header1": "할 일",
+    "header2": "나의 카테고리"
+  },
+  "todoList": {
+    "header1": "할 일",
+    "header2": "카테고리",
+    "header3": "중요도",
+    "header4": "만료일",
+    "low": "낮음",
+    "medium": "중간",
+    "high": "높음"
+  },
+  "todoStatus": {
+    "today": "오늘 할일",
+    "after": "남은 할일",
+    "complete": "완료한 할일"
+  },
+  "addCategory": {
+    "button": "카테고리 추가",
+    "title": "카테고리 추가",
+    "category": {
+      "label": "카테고리 이름",
+      "placeholder": "카테고리 이름을 입력하세요"
+    },
+    "color": {
+      "label": "색상"
+    },
+    "submit": "추가"
+  },
+  "categoryList": {
+    "header1": "카테고리",
+    "header2": "사용횟수",
+    "header3": "삭제",
+    "dialog": {
+      "title": "카테고리 삭제하기",
+      "description": "해당 카테고리를 사용하는 ToDo는 삭제 되지 않습니다.",
+      "button": "삭제"
+    }
+  },
+  "addTodo": {
+    "title": "TODO 리스트 추가",
+    "form1": {
+      "label": "할 일",
+      "placeholder": "할 일을 입력하세요"
+    },
+    "form2": {
+      "label": "기한"
+    },
+    "form3": {
+      "label": "카테고리",
+      "placeholder": "카테고리를 선택하세요"
+    },
+    "form4": {
+      "label": "중요도",
+      "placeholder": "중요도를 선택하세요"
+    },
+    "submit": "추가"
+  },
+  "report": {
+    "header1": "매달 추가된 할 일",
+    "header2": "매달 완료한 기록",
+    "header3": "카테고리별 할일 개수"
   }
 }

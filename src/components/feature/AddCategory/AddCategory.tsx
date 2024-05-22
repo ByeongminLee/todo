@@ -20,10 +20,13 @@ import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '@/utils';
 import { queryClient } from '@/components/system';
 import { useUserStore } from '@/store/user.store';
+import { useTranslations } from 'next-intl';
 
 export interface AddCategoryProps {}
 
 export const AddCategory = ({}: AddCategoryProps) => {
+  const t = useTranslations('addCategory');
+
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
   const [color, setColor] = useState('#b6b6b6');
@@ -56,26 +59,26 @@ export const AddCategory = ({}: AddCategoryProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={'outline'}>카테고리 추가</Button>
+        <Button variant={'outline'}>{t('button')}</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="mx-auto sm:mx-0">카테고리 추가</DialogTitle>
+          <DialogTitle className="mx-auto sm:mx-0">{t('title')}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(addCategory)}>
           <div className="flex flex-col gap-6 my-8">
             <div className="flex flex-col gap-2">
-              <Label>카테고리명</Label>
+              <Label>{t('category.label')}</Label>
               <Input
                 {...register('title')}
                 name="title"
-                placeholder="카테고리를 입력해주세요"
+                placeholder={t('category.placeholder')}
               />
 
               <ErrorMessage error={errors.title} message={errors.title?.message} />
             </div>
             <div className="flex flex-col gap-2">
-              <Label>색상</Label>
+              <Label>{t('color.label')}</Label>
               <Controller
                 name="color"
                 control={control}
@@ -95,7 +98,7 @@ export const AddCategory = ({}: AddCategoryProps) => {
           </div>
 
           <DialogFooter>
-            <Button type="submit">추가</Button>
+            <Button type="submit">{t('submit')}</Button>
           </DialogFooter>
         </form>
       </DialogContent>
