@@ -1,12 +1,10 @@
 'use client';
 
 import { useDataStore } from '@/store/data.store';
-import { useUserStore } from '@/store/user.store';
 import { fetcher } from '@/utils';
 import { useQuery } from '@tanstack/react-query';
 
-export default function useTodo() {
-  const { userId } = useUserStore();
+export default function useTodo({ userId }: { userId: string }) {
   const setTodoData = useDataStore(state => state.actions.setTodoData);
   const setCategoryData = useDataStore(state => state.actions.setCategoryData);
   const actions = useDataStore(state => state.actions);
@@ -42,7 +40,7 @@ export default function useTodo() {
   setTodoData(todoData);
   setCategoryData(categoryData);
 
-  const todoList = actions.getTodoList();
+  const todoList = actions.getTodoListSorted();
   const categoryList = actions.getCategoryList();
   const categoryLabel = actions.getCategoryLabel();
 

@@ -38,7 +38,7 @@ export const useDataStore = create<State & Actions>((set, get) => ({
     },
     getTodoListSorted: () => {
       const todoList = get().actions.getTodoList();
-      return todoList.sort((a: any, b: any) => {
+      return todoList.sort((a: TodoWithCategory, b: TodoWithCategory) => {
         if (a.status === b.status) {
           return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
         }

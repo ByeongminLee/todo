@@ -1,3 +1,4 @@
+'use client';
 import {
   Pagination,
   PaginationContent,
@@ -28,6 +29,8 @@ export const usePagination = ({ list, limit }: { list: any[]; limit: number }) =
   };
 
   const render = () => {
+    if (list.length === 0) return null;
+
     let startPage = Math.max(1, currentPage - 1);
     let endPage = Math.min(totalPage, currentPage + 1);
 
