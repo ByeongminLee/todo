@@ -17,11 +17,13 @@ type Story = StoryObj<typeof meta>;
 export const Google: Story = {
   args: {
     variant: 'google',
+    onClick: () => {},
   },
 };
 
 export const KaKao: Story = {
   args: {
     variant: 'kakao',
+    onClick: () => {},
   },
 };
